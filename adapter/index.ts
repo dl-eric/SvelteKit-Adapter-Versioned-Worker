@@ -197,7 +197,8 @@ export function adapter(inputConfig: AdapterConfig): Adapter {
 	const config = applyAdapterConfigDefaults(inputConfig);
 	adapterConfig = config;
 
-	const adapterInstance = adapterStatic({ pages: adapterConfig.outputDir });
+	log.message("Setting strict to false...");
+	const adapterInstance = adapterStatic({ pages: adapterConfig.outputDir, strict: false });
 
 	return {
 		name: "adapter-versioned-worker",
